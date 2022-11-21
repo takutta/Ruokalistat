@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+html, body {
+    height: 100%;
+    font-family: 'Mulish', sans-serif;
+    font-size:14px
+    background: 255,255,255,1;
+}
+.center {text-align:center}
+.reunat {border:1px solid #000}
+
+.linja {width:130px; height: 90px;text-align:center}
+
+.sarakkeet {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    height: 1015px;
+    width: 770px;
+    -webkit-column-fill: auto;
+    -moz-column-fill: auto;
+    column-fill: auto;
+  }
+ 
+  .form-group {
+    margin-bottom: 1rem;
+}
+.even { background:rgba(0,0,0,0.15);Padding:5px}
+.odd { padding:5px}
+.viikko {background:rgba(0,0,0,0.1)}
+
+.kokosivu {padding:15px}
+
+.gradient-text {
+	text-transform: uppercase;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font: {
+		size: 20vw;
+		family: $font;
+	};
+}
+
+.erilliset {
+    float:left;
+    width:770px;
+    height:1015px
+}

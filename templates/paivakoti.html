@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if vierekkain %}
+<section class="sheet kokosivu">
+      <h1>{{paivakoti}}</h1>
+      <div class="row align-items-start ">
+      {% for viikko in menu %}
+      {% if loop.index < 3 %}
+      <div class="col">
+         <b style="padding:5px">Viikko {{viikot[loop.index0]}}</b><br>
+         <div class="viikko">
+         {% for paiva, ruoka in viikko.items() %}
+            <div class="{{ loop.cycle('odd', 'even') }}">
+               <div class="row align-items-start ">
+                  <div class="col-1">{{paivat[loop.index0]}}</div>
+                  <div class="col-10">
+                     {% for ruokailu, ainekset in ruoka.items() %}
+                     <b>{{ ruokailu }}</b>: {{', '.join(ainekset)}}<br>
+                     {% endfor %}
+                  </div> <!-- kaks -->
+               </div> 
+            </div> <!-- even & odd -->
+         {% endfor %}
+         </div><br> <!-- viikko -->
+      </div>
+      {% endif %}
+      {% endfor %}</div>
+      </div> <!-- sarakkeet -->
+   </section>
+
+{% elif vierekkain2 %}
+
+<section class="sheet kokosivu">
+   <h1>{{paivakoti}}</h1>
+   <div class="row align-items-start ">
+   {% for viikko in menu %}
+   {% if loop.index < 3 %}
+   <div class="col">
+      <b style="padding:5px">Viikko {{viikot[loop.index0]}}</b><br>
+      <div class="viikko">
+      {% for paiva, ruoka in viikko.items() %}
+         <div class="{{ loop.cycle('odd', 'even') }}">
+            <div class="row align-items-start ">
+               <div class="col-1">{{paivat[loop.index0]}}</div>
+               <div class="col-10">
+                  {% for ruokailu, ainekset in ruoka.items() %}
+                  <b>{{ ruokailu }}</b>: {{', '.join(ainekset)}}<br>
+                  {% endfor %}
+               </div> <!-- kaks -->
+            </div> 
+         </div> <!-- even & odd -->
+      {% endfor %}
+      </div><br> <!-- viikko -->
+   </div>
+   {% endif %}
+   {% endfor %}</div>
+   </div> <!-- sarakkeet -->
+</section>
+<section class="sheet kokosivu">
+   <h1>{{paivakoti}}</h1>
+   <div class="row align-items-start ">
+   {% for viikko in menu %}
+   {% if loop.index > 2 %}
+   <div class="col">
+      <b style="padding:5px">Viikko {{viikot[loop.index0]}}</b><br>
+      <div class="viikko">
+      {% for paiva, ruoka in viikko.items() %}
+         <div class="{{ loop.cycle('odd', 'even') }}">
+            <div class="row align-items-start ">
+               <div class="col-1">{{paivat[loop.index0]}}</div>
+               <div class="col-10">
+                  {% for ruokailu, ainekset in ruoka.items() %}
+                  <b>{{ ruokailu }}</b>: {{', '.join(ainekset)}}<br>
+                  {% endfor %}
+               </div> <!-- kaks -->
+            </div> 
+         </div> <!-- even & odd -->
+      {% endfor %}
+      </div><br> <!-- viikko -->
+   </div>
+   {% endif %}
+   {% endfor %}</div>
+   </div> <!-- sarakkeet -->
+</section>
+
+
+{% else %}
+   <section class="sheet kokosivu">
+      <h1>{{paivakoti}}<!-- - viikot {{viikot[0]}}-{{viikkoja}}--></h1>
+      <div class="sarakkeet">
+      {% for viikko in menu %}
+         <b style="padding:5px">Viikko {{viikot[loop.index0]}}</b><br>
+         <div class="viikko">
+         {% for paiva, ruoka in viikko.items() %}
+            <div class="{{ loop.cycle('odd', 'even') }}">
+               <div class="row align-items-start ">
+                  <div class="col-1">{{paivat[loop.index0]}}</div>
+                  <div class="col-10">
+                     {% for ruokailu, ainekset in ruoka.items() %}
+                     <b>{{ ruokailu }}</b>: {{', '.join(ainekset)}}<br>
+                     {% endfor %}
+                  </div> <!-- kaks -->
+               </div> 
+            </div> <!-- even & odd -->
+         {% endfor %}
+         </div><br> <!-- viikko -->
+      {% endfor %}
+      </div> <!-- sarakkeet -->
+   </section>
+{%endif %}        
+{% endblock %}

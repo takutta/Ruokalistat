@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+html, body {
+    height: 100%;
+    font-family: 'Mulish', sans-serif;
+    font-size:14px
+    background: rgb(3,229,255);
+    background: linear-gradient(90deg, rgba(3,229,255,0.12439651257361317) 0%, rgba(104,9,121,0) 51%, rgba(0,29,255,0.11831748521799013) 100%);
+}
+.center {text-align:center}
+ 
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.kokosivu {padding:15px}
+
+.gradient-text {
+	text-transform: uppercase;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font: {
+		size: 20vw;
+		family: $font;
+	};
+}

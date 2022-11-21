@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="jumbotron display-1 justify-content-center gradient-text">Ruokalistat</h1>
+<p class="lead">Valitse haluamasi päiväkoti ja ateriat</p>
+<form action = "paivakoti" method = "POST">
+   <div class="form-group">
+      <select class="form-select" name="paivakoti">
+         {% for paivakoti in paivakodit %}
+         <option value="{{ paivakoti['Konenimi'] }}">{{ paivakoti['Nimi'] }}</option>
+         {% endfor %}
+      </select>
+   </div>
+   <div class="form-group">
+      <select class="form-select" name="ruoat">
+         <option value="paiva">Päiväruoat</option>
+         <option value="ilta">Iltaruoat</option>
+         <option value="paivailta">Päivä- ja iltaruoat</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="viikot" class="form-label">Tulostettavat viikot: </label>
+      <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="viikot" id="1" value="1" checked>
+         <label class="form-check-label" for="1">1</label>
+      </div>
+      <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="viikot" id="2" value="2">
+         <label class="form-check-label" for="2">2</label>
+      </div>
+      <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="viikot" id="3" value="3">
+         <label class="form-check-label" for="3">3</label>
+      </div>
+      <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="viikot" id="4" value="4">
+         <label class="form-check-label" for="4">4</label>
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="jarjestys" class="form-label">Järjestys: </label>
+      <select class="form-select" name="jarjestys">   
+         <option value="perakkain">Viikot peräkkäin</option>
+         <option value="vierekkain">Viikot vierekkäin</option>
+         <option value="vierekkain2">Viikot vierekkäin 2 paperille</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <div class="col-12">
+         <button type="submit" class="btn btn-primary mt-3" >Aloita</button>
+      </div>
+   </div>
+</form>
+{% endblock %}
