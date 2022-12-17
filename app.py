@@ -3,10 +3,11 @@ from flask import Flask, render_template, request, session, url_for, redirect
 from livereload import Server
 import random, feedparser, re, sys, json, io, datetime
 from babel.dates import format_date, format_datetime, format_time
+import os
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.debug = True
-app.secret_key = b'6hc/_gsh,./;2ZZx3c6_s,1//'
+app.secret_key = os.urandom(12)
 
 #print('4', file=sys.stderr)
 
@@ -127,5 +128,9 @@ def listaus ():
     return json.load(open('paivakodit.json', encoding="utf-8"))   
 
 if __name__ == "__main__":
-    server = Server(app.wsgi_app)
-    server.serve()	
+    if os.environ.get("FLASK_ENV") == "production":
+        app.run(debug=False, host='0.0.0.0', port=8080)
+    else:
+        app.debug = True
+        server = Server(app.wsgi_app)
+        server.serve()
